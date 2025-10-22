@@ -61,7 +61,9 @@ dependencies {
     debugImplementation(libs.androidx.ui.test.manifest)
 
     // ✅ Retrofit + Gson + OkHttp
+    implementation("androidx.compose.material:material-icons-extended-android:1.6.8") // Adicione esta linha
     implementation("com.squareup.retrofit2:retrofit:2.9.0")
     implementation("com.squareup.retrofit2:converter-gson:2.9.0")
     implementation("com.squareup.okhttp3:logging-interceptor:4.9.3")
+    implementation("com.google.mlkit:language-id:17.0.5")
 }
