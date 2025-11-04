@@ -12,7 +12,7 @@ class ChatViewModel : ViewModel() {
 
     fun sendMessage(text: String) {
         val newMsg = Message(text = text, isFromUser = true)
-        val botReply = Message(text = "Você disse: $text", isFromUser = false)
+        val botReply = Message(text = " $text", isFromUser = false)
         _messages.value += listOf(newMsg, botReply)
     }
 }
