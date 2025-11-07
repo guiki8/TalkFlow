@@ -7,7 +7,7 @@ import androidx.activity.result.contract.ActivityResultContracts
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.*
 import androidx.compose.material.icons.Icons
-import androidx.compose.material.icons.filled.ArrowBack
+import androidx.compose.material.icons.filled.Chat
 import androidx.compose.material.icons.filled.Mic
 import androidx.compose.material.icons.filled.Translate
 import androidx.compose.material3.*
@@ -16,8 +16,10 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.platform.LocalContext
+import androidx.compose.ui.res.colorResource
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
+import com.example.talkflow.R
 import com.google.mlkit.nl.translate.*
 import com.google.mlkit.common.model.DownloadConditions
 
@@ -52,30 +54,28 @@ fun LiveTranslatePage(onBackToChat: () -> Unit) {
             .background(Color(0xFF101010))
             .statusBarsPadding()
             .navigationBarsPadding()
-            .padding(horizontal = 16.dp),
+            .padding(16.dp),
         horizontalAlignment = Alignment.CenterHorizontally
     ) {
         // Topo
         Row(
-            modifier = Modifier.fillMaxWidth(),
+            modifier = Modifier
+                .fillMaxWidth(),
+            horizontalArrangement = Arrangement.SpaceBetween,
             verticalAlignment = Alignment.CenterVertically
         ) {
-            IconButton(onClick = { onBackToChat() }) {
-                Icon(Icons.Default.ArrowBack, contentDescription = "Voltar", tint = Color(0xFF7B61FF))
+            Text("TalkFlow Microfone", color = Color.White, style = MaterialTheme.typography.titleLarge)
+            Row {
+                IconButton(onClick = { onBackToChat() }) {
+                    Icon(Icons.Default.Chat, contentDescription = "Ir para tradução em tempo real", tint = colorResource(id = R.color.primary))
+                }
             }
-            Text(
-                "🎙️ Tradução em Tempo Real",
-                color = Color.White,
-                style = MaterialTheme.typography.titleLarge
-            )
         }
-
-        Spacer(modifier = Modifier.height(20.dp))
 
         // Botão para selecionar idiomas
         Button(
             onClick = { showLanguageMenu = true },
-            colors = ButtonDefaults.buttonColors(containerColor = Color(0xFF7B61FF))
+            colors = ButtonDefaults.buttonColors(containerColor = colorResource(id = R.color.primary))
         ) {
             Icon(Icons.Default.Translate, contentDescription = null)
             Spacer(modifier = Modifier.width(8.dp))
@@ -121,7 +121,7 @@ fun LiveTranslatePage(onBackToChat: () -> Unit) {
             Divider(color = Color.DarkGray, thickness = 1.dp)
             Text(
                 translatedText,
-                color = Color(0xFF7B61FF),
+                color = colorResource(id = R.color.primary),
                 fontWeight = FontWeight.Bold,
                 modifier = Modifier.padding(8.dp)
             )
@@ -140,7 +140,7 @@ fun LiveTranslatePage(onBackToChat: () -> Unit) {
                 speechLauncher.launch(intent)
             },
             colors = ButtonDefaults.buttonColors(
-                containerColor = if (isListening) Color.Red else Color(0xFF7B61FF)
+                containerColor = if (isListening) Color.Red else colorResource(id = R.color.primary)
             ),
             modifier = Modifier.fillMaxWidth()
         ) {
