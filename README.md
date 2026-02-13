@@ -1,23 +1,23 @@
-# 🎧 TalkFlow – Tradutor de Voz em Tempo Real
+# 🎧 TalkFlow – Real-Time Voice Translator
 
-## Sobre o aplicativo
-Aplicativo Android desenvolvido para traduzir áudio e texto em tempo real, utilizando modelos offline do Google ML Kit.
+## About the Application
+Android application developed to translate audio and text in real time, using offline models from Google ML Kit.
 
-## Funcionalidades
-- Tradução imediata entre diversos idiomas
-- Reconhecimento de voz nativo do Android
-- Tradução de mensagens de texto dentro do chat
-- Download automático de modelos de linguagem
-- Interface simples e leve
+## Features
+- Instant translation between multiple languages
+- Native Android voice recognition
+- Text message translation within the chat
+- Automatic language model download
+- Simple and lightweight interface
 
-## Tecnologias
+## Technologies
 - Kotlin
 - Jetpack Compose
 - Google ML Kit: Translation
 - Android SpeechRecognizer
 - Material Design 3
 
-## Como executar
+## How to Run
 ```bash
-abra o projeto no Android Studio
-execute em um dispositivo físico ou emulador
+open the project in Android Studio
+run it on a physical device or emulator
